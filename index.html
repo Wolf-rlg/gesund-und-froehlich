@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Gesund &amp; Fröhlich</title>
+  <meta name="description" id="page-description" content="" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+          colors: {
+            sage: {
+              50:  '#f6f8f4', 100: '#e9f0e6', 200: '#d2dfcf',
+              300: '#b3c8b0', 400: '#8aab86', 500: '#6b916a',
+              600: '#5d7e5a', 700: '#4e6b4b', 800: '#3d5539', 900: '#33462f'
+            },
+            cream: '#faf8f5', beige: '#f2ede6', warm: { 100: '#f7f3ee', 200: '#ede5da' }
+          },
+          boxShadow: {
+            calm: '0 8px 30px rgba(34,52,33,.07)',
+            lift: '0 14px 40px rgba(34,52,33,.12)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Content Data -->
+  <script src="content.js"></script>
+</head>
+
+<body class="bg-cream text-stone-800 antialiased font-sans">
+
+  <!-- ═══════════ HEADER ═══════════ -->
+  <header id="site-header" class="site-header sticky top-0 z-50 border-b border-stone-200/60 bg-cream/95 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+      <a href="#home" class="flex items-center gap-3">
+        <img id="header-logo" src="" alt="Logo" class="h-10 w-auto" />
+        <span id="nav-brand" class="text-sm font-bold uppercase tracking-[0.15em] text-sage-700"></span>
+      </a>
+
+      <nav id="desktop-nav" aria-label="Hauptnavigation" class="hidden lg:flex items-center gap-5">
+        <!-- filled by JS -->
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a id="header-phone" href="" class="btn-primary hidden sm:inline-flex text-sm !py-2 !px-4"></a>
+        <button id="burger" aria-label="Menü öffnen" class="lg:hidden p-2 rounded-lg hover:bg-sage-100 transition">
+          <svg class="w-6 h-6 text-sage-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-overlay" class="mobile-nav-overlay"></div>
+  <aside id="mobile-panel" class="mobile-nav-panel">
+    <div class="flex justify-between items-center mb-6">
+      <span class="font-bold text-sage-700 uppercase tracking-wider text-sm">Menü</span>
+      <button id="mobile-close" aria-label="Menü schließen" class="p-2 rounded-lg hover:bg-sage-100">
+        <svg class="w-6 h-6 text-sage-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="mobile-nav"><!-- filled by JS --></nav>
+  </aside>
+
+  <!-- ═══════════ MAIN ═══════════ -->
+  <main id="home">
+
+    <!-- ── HERO ── -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-sage-100/60 via-cream to-cream">
+      <div class="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-20 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <div class="fade-up">
+            <p id="hero-badge" class="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sage-600"></p>
+            <h1 id="hero-title" class="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-stone-900"></h1>
+            <p id="hero-subtitle" class="mt-5 text-base sm:text-lg leading-relaxed text-stone-700"></p>
+            <p id="hero-subtitle-hl" class="mt-3 text-lg font-semibold text-sage-700"></p>
+            <p id="hero-text" class="mt-4 text-base leading-relaxed text-stone-600"></p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#kontakt" class="btn-primary" id="hero-cta1"></a>
+              <a href="#leistungen" class="btn-secondary" id="hero-cta2"></a>
+            </div>
+            <ul id="hero-highlights" class="mt-8 grid gap-2 text-sm text-stone-600"></ul>
+          </div>
+          <div class="fade-up">
+            <img id="hero-image" src="" alt="" class="img-natural" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LEISTUNGEN ── -->
+    <section id="leistungen" class="py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <h2 id="leistungen-title" class="section-title fade-up"></h2>
+        <p id="leistungen-lead" class="section-lead fade-up"></p>
+        <div id="leistungen-grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- cards inserted by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── OSTEOPATHIE DETAIL ── -->
+    <section id="osteopathie" class="section-alt py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+          <div class="fade-up">
+            <h2 id="osteo-title" class="section-title"></h2>
+            <p id="osteo-subtitle" class="mt-2 text-lg italic text-sage-600"></p>
+            <p id="osteo-text1" class="mt-4 text-base leading-relaxed text-stone-700"></p>
+            <p id="osteo-text2" class="mt-4 text-base leading-relaxed text-stone-700"></p>
+
+            <h3 class="mt-8 text-lg font-semibold text-sage-700">Behandlungsschwerpunkte</h3>
+            <ul id="osteo-schwerpunkte" class="mt-3 space-y-1.5 text-sm text-stone-700"></ul>
+
+            <div id="osteo-kassen-box" class="mt-8 rounded-xl bg-white border border-stone-200 p-5">
+              <h4 class="font-semibold text-sage-700 text-sm uppercase tracking-wide mb-2">Kassenleistungen</h4>
+              <p id="osteo-kassen" class="text-sm leading-relaxed text-stone-600"></p>
+              <p id="osteo-kassen-hinweis" class="mt-2 text-sm leading-relaxed text-stone-600"></p>
+            </div>
+          </div>
+          <div class="fade-up space-y-8">
+            <img id="osteo-img" src="" alt="Osteopathie" class="img-natural" loading="lazy" />
+
+            <div class="rounded-2xl bg-white border border-stone-200 p-6 shadow-calm">
+              <h3 id="osteo-saeugling-title" class="text-xl font-semibold text-stone-900"></h3>
+              <p id="osteo-saeugling-text" class="mt-3 text-stone-700 text-sm leading-relaxed"></p>
+              <img id="osteo-saeugling-img" src="" alt="Säuglingsbehandlung" class="img-natural mt-4" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MATRIX-RHYTHMUS-THERAPIE ── -->
+    <section id="matrix" class="py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+          <div class="fade-up">
+            <h2 id="matrix-title" class="section-title"></h2>
+            <p id="matrix-quote" class="mt-2 text-base italic text-sage-600"></p>
+            <p id="matrix-text1" class="mt-4 text-base leading-relaxed text-stone-700"></p>
+            <p id="matrix-text2" class="mt-4 text-base leading-relaxed text-stone-700"></p>
+
+            <h3 id="matrix-funktion-title" class="mt-8 text-lg font-semibold text-sage-700"></h3>
+            <p id="matrix-funktion-text" class="mt-2 text-base leading-relaxed text-stone-700"></p>
+            <p id="matrix-hinweis" class="mt-3 text-sm italic text-stone-500"></p>
+          </div>
+          <div class="fade-up space-y-6">
+            <img id="matrix-img1" src="" alt="Matrix-Gerät" class="img-natural" loading="lazy" />
+            <img id="matrix-img2" src="" alt="Matrix-Behandlung" class="img-natural" loading="lazy" />
+
+            <div class="rounded-xl bg-sage-50 border border-sage-200 p-5">
+              <h4 class="font-semibold text-sage-700 text-sm uppercase tracking-wide mb-3">Anwendungsbereiche</h4>
+              <ul id="matrix-anwendungen" class="space-y-1 text-sm text-stone-700"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PORTRAIT / ÜBER UNS ── -->
+    <section id="portrait" class="section-alt py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <h2 id="portrait-title" class="section-title fade-up"></h2>
+
+        <!-- Team Intro -->
+        <div class="mt-10 grid gap-10 lg:grid-cols-5 lg:items-center fade-up">
+          <div class="lg:col-span-2">
+            <img id="portrait-team-img" src="" alt="Praxisteam" class="img-portrait mx-auto" loading="lazy" />
+          </div>
+          <div class="lg:col-span-3">
+            <p id="portrait-lead" class="text-xl font-semibold text-sage-700"></p>
+            <p id="portrait-intro" class="mt-3 text-base leading-relaxed text-stone-700"></p>
+            <p id="portrait-philosophy" class="mt-3 text-base leading-relaxed text-stone-700"></p>
+            <p id="portrait-cta" class="mt-4 font-semibold text-sage-600"></p>
+          </div>
+        </div>
+
+        <!-- Therapeuten -->
+        <h3 id="portrait-section-title" class="mt-14 text-2xl font-bold text-sage-700 fade-up"></h3>
+        <div id="portrait-members" class="mt-8 grid gap-8 md:grid-cols-2">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRAXISRÄUME ── -->
+    <section id="praxis" class="py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <h2 id="praxis-title" class="section-title fade-up"></h2>
+        <p id="praxis-lead" class="section-lead fade-up"></p>
+        <div id="praxis-gallery" class="mt-10 gallery-grid fade-up">
+          <!-- images inserted by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ / INFOS & PREISE ── -->
+    <section id="faq" class="section-alt py-14 md:py-20">
+      <div class="mx-auto max-w-5xl px-4 md:px-6">
+        <h2 id="faq-title" class="section-title fade-up"></h2>
+        <div id="faq-list" class="mt-10 space-y-4 fade-up">
+          <!-- FAQ items inserted by JS -->
+        </div>
+        <p id="faq-cta" class="mt-8 text-center text-lg font-semibold text-sage-600 fade-up"></p>
+      </div>
+    </section>
+
+    <!-- ── DOCTOLIB PLATZHALTER ── -->
+    <section id="doctolib" class="py-14 md:py-20">
+      <div class="mx-auto max-w-4xl px-4 md:px-6 fade-up">
+        <h2 id="doctolib-title" class="section-title text-center"></h2>
+        <div class="doctolib-placeholder mt-8">
+          <svg class="w-12 h-12 mx-auto mb-4 text-sage-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/>
+          </svg>
+          <p id="doctolib-placeholder" class="text-base font-medium"></p>
+          <p id="doctolib-hint" class="mt-2 text-sm text-stone-500"></p>
+          <!--
+            ═══════════════════════════════════════════
+            DOCTOLIB WIDGET: Ersetze diesen Kommentar
+            mit dem Doctolib-Iframe, z.B.:
+            <iframe src="https://www.doctolib.de/..." ...></iframe>
+            ═══════════════════════════════════════════
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── KONTAKT ── -->
+    <section id="kontakt" class="section-alt py-14 md:py-20">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="grid gap-10 lg:grid-cols-2 lg:gap-14">
+
+          <!-- Kontaktinfo -->
+          <div class="fade-up">
+            <h2 id="kontakt-title" class="section-title"></h2>
+            <p id="kontakt-lead" class="section-lead"></p>
+
+            <div class="mt-8 space-y-4 text-base text-stone-700">
+              <p>
+                <span class="font-semibold text-stone-900">Telefon:</span>
+                <a id="kontakt-phone" href="" class="underline decoration-sage-300 underline-offset-4"></a>
+              </p>
+              <p>
+                <span class="font-semibold text-stone-900">E-Mail:</span>
+                <a id="kontakt-email" href="" class="underline decoration-sage-300 underline-offset-4"></a>
+              </p>
+              <p>
+                <span class="font-semibold text-stone-900">Adresse:</span>
+                <span id="kontakt-address"></span>
+                <span id="kontakt-address-detail" class="text-stone-500"></span>
+              </p>
+            </div>
+
+            <!-- Öffnungszeiten -->
+            <div class="mt-6 rounded-xl bg-white border border-stone-200 p-5">
+              <h4 class="font-semibold text-sage-700 text-sm uppercase tracking-wide mb-3">Öffnungszeiten</h4>
+              <dl id="kontakt-hours" class="grid grid-cols-2 gap-y-1.5 text-sm text-stone-700">
+                <!-- filled by JS -->
+              </dl>
+            </div>
+
+            <!-- WhatsApp / SMS / Anruf Buttons -->
+            <div class="mt-6 flex flex-wrap gap-3" id="kontakt-buttons">
+              <a id="kontakt-wa" href="" class="btn-whatsapp" target="_blank" rel="noopener">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+                WhatsApp
+              </a>
+              <a id="kontakt-sms" href="" class="btn-sms">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"/></svg>
+                SMS
+              </a>
+              <a id="kontakt-call" href="" class="btn-secondary text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                Anrufen
+              </a>
+            </div>
+
+            <img id="kontakt-praxis-img" src="" alt="Praxis" class="img-natural mt-8" loading="lazy" />
+          </div>
+
+          <!-- Kontaktformular -->
+          <div class="fade-up">
+            <form id="contactForm" class="rounded-2xl border border-stone-200 bg-white p-6 shadow-calm md:p-8" novalidate>
+              <fieldset class="space-y-5">
+                <legend class="sr-only">Kontaktformular</legend>
+
+                <div>
+                  <label for="f-name" class="form-label" id="label-name"></label>
+                  <input id="f-name" name="name" type="text" required class="form-input" placeholder="Ihr Name" />
+                </div>
+
+                <div>
+                  <label for="f-email" class="form-label" id="label-email"></label>
+                  <input id="f-email" name="email" type="email" required class="form-input" placeholder="name@beispiel.de" />
+                </div>
+
+                <div>
+                  <label for="f-phone" class="form-label" id="label-phone"></label>
+                  <input id="f-phone" name="phone" type="tel" required class="form-input" placeholder="0176 12 34 56 78" />
+                </div>
+
+                <div>
+                  <label for="f-message" class="form-label" id="label-message"></label>
+                  <textarea id="f-message" name="message" rows="5" maxlength="700" required class="form-input" placeholder="Wie können wir Ihnen helfen?"></textarea>
+                  <div class="mt-2 flex items-center justify-between text-xs text-stone-500">
+                    <span id="form-absage"></span>
+                    <span id="charCount">0 / 700</span>
+                  </div>
+                </div>
+
+                <label class="flex items-start gap-3 rounded-xl border border-stone-200 bg-stone-50 p-3 text-sm text-stone-700 cursor-pointer">
+                  <input id="consent" type="checkbox" required class="mt-0.5 h-4 w-4 rounded border-stone-300 accent-sage-600" />
+                  <span id="form-consent"></span>
+                </label>
+
+                <button type="submit" id="form-submit" class="btn-primary w-full justify-center !rounded-xl"></button>
+                <p id="formMessage" class="min-h-[1.5rem] text-sm text-stone-600"></p>
+                <p id="form-datenschutz" class="text-xs text-stone-400 leading-relaxed"></p>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="border-t border-stone-200 bg-stone-100">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-stone-600 md:flex-row md:items-center md:justify-between md:px-6">
+      <div>
+        <img id="footer-logo" src="" alt="Logo" class="h-8 w-auto mb-2" />
+        <p id="footer-copyright"></p>
+        <p id="footer-address" class="text-xs text-stone-400 mt-1"></p>
+      </div>
+      <div id="footer-links" class="flex flex-wrap gap-4">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ RENDER CONTENT ═══════════ -->
+  <script>
+    /**
+     * renderContent()  –  Liest CONTENT aus content.js und
+     * befüllt alle HTML-Container via getElementById().innerHTML.
+     * So kann ein Laie Texte in content.js ändern, ohne
+     * die HTML-Struktur anfassen zu müssen.
+     */
+    function renderContent() {
+      const C = CONTENT;
+      const $ = (id) => document.getElementById(id);
+
+      /* ── Meta ── */
+      document.title = C.meta.title;
+      $("page-description")?.setAttribute("content", C.meta.description);
+
+      /* ── Nav ── */
+      $("header-logo").src = C.images.logo;
+      $("header-logo").alt = "Logo " + C.nav.brand;
+      $("nav-brand").textContent = C.nav.brand;
+      $("header-phone").href = C.nav.phoneHref;
+      $("header-phone").textContent = C.nav.phone;
+
+      // Desktop-Nav
+      const desktopNav = $("desktop-nav");
+      desktopNav.innerHTML = C.nav.links
+        .map(l => `<a href="${l.href}" class="text-sm font-medium text-stone-700 transition hover:text-sage-600">${l.label}</a>`)
+        .join("");
+
+      // Mobile-Nav
+      const mobileNav = $("mobile-nav");
+      mobileNav.innerHTML = C.nav.links
+        .map(l => `<a href="${l.href}" class="mobile-nav-link">${l.label}</a>`)
+        .join("") +
+        `<a href="${C.nav.phoneHref}" class="btn-primary mt-6 w-full justify-center">${C.nav.phone}</a>`;
+
+      /* ── Hero ── */
+      $("hero-badge").textContent = C.hero.badge;
+      $("hero-title").textContent = C.hero.title;
+      $("hero-subtitle").textContent = C.hero.subtitle;
+      $("hero-subtitle-hl").textContent = C.hero.subtitleHighlight;
+      $("hero-text").textContent = C.hero.text;
+      $("hero-cta1").textContent = C.hero.cta1;
+      $("hero-cta2").textContent = C.hero.cta2;
+      $("hero-highlights").innerHTML = C.hero.highlights
+        .map(h => `<li class="flex items-start gap-2"><span class="text-sage-500 mt-0.5">✓</span> ${h}</li>`)
+        .join("");
+      $("hero-image").src = C.images.praxisAussen;
+      $("hero-image").alt = "Praxis Gesund und Fröhlich";
+
+      /* ── Leistungen ── */
+      $("leistungen-title").textContent = C.leistungen.title;
+      $("leistungen-lead").textContent = C.leistungen.lead;
+      $("leistungen-grid").innerHTML = C.leistungen.items
+        .map(item => `
+          <article class="card fade-up">
+            <span class="card-icon">${item.icon}</span>
+            <h3 class="text-lg font-semibold text-stone-900">${item.title}</h3>
+            <p class="mt-2 text-sm text-stone-600 leading-relaxed">${item.text}</p>
+            <ul class="mt-3 space-y-1 text-sm text-stone-600">
+              ${item.list.map(li => `<li class="flex items-start gap-1.5"><span class="text-sage-500 mt-0.5 shrink-0">•</span> ${li}</li>`).join("")}
+            </ul>
+          </article>
+        `).join("");
+
+      /* ── Osteopathie ── */
+      $("osteo-title").textContent = C.osteopathie.title;
+      $("osteo-subtitle").textContent = C.osteopathie.subtitle;
+      $("osteo-text1").textContent = C.osteopathie.text1;
+      $("osteo-text2").textContent = C.osteopathie.text2;
+      $("osteo-schwerpunkte").innerHTML = C.osteopathie.schwerpunkte
+        .map(s => `<li class="flex items-start gap-2"><span class="text-sage-500 shrink-0">•</span> ${s}</li>`)
+        .join("");
+      $("osteo-kassen").textContent = C.osteopathie.kassen;
+      $("osteo-kassen-hinweis").textContent = C.osteopathie.kassenHinweis;
+      $("osteo-img").src = C.images.osteopathieInfo;
+      $("osteo-img").alt = "Osteopathische Behandlung";
+      $("osteo-saeugling-title").textContent = C.osteopathie.saeugling.title;
+      $("osteo-saeugling-text").textContent = C.osteopathie.saeugling.text;
+      $("osteo-saeugling-img").src = C.images.saeugling;
+      $("osteo-saeugling-img").alt = "Säuglingsbehandlung";
+
+      /* ── Matrix ── */
+      $("matrix-title").textContent = C.matrix.title;
+      $("matrix-quote").textContent = C.matrix.quote;
+      $("matrix-text1").textContent = C.matrix.text1;
+      $("matrix-text2").textContent = C.matrix.text2;
+      $("matrix-funktion-title").textContent = C.matrix.funktionTitle;
+      $("matrix-funktion-text").textContent = C.matrix.funktionText;
+      $("matrix-hinweis").textContent = C.matrix.hinweis;
+      $("matrix-img1").src = C.images.matrixGeraet;
+      $("matrix-img2").src = C.images.matrixBehandlung;
+      $("matrix-anwendungen").innerHTML = C.matrix.anwendungen
+        .map(a => `<li class="flex items-start gap-2"><span class="text-sage-500 shrink-0">•</span> ${a}</li>`)
+        .join("");
+
+      /* ── Portrait ── */
+      $("portrait-title").textContent = C.portrait.title;
+      $("portrait-team-img").src = C.images.teamFull;
+      $("portrait-team-img").alt = "Praxisteam";
+      $("portrait-lead").textContent = C.portrait.lead;
+      $("portrait-intro").textContent = C.portrait.teamIntro;
+      $("portrait-philosophy").textContent = C.portrait.philosophy;
+      $("portrait-cta").textContent = C.portrait.cta;
+      $("portrait-section-title").textContent = C.portrait.sectionTitle;
+
+      $("portrait-members").innerHTML = C.portrait.members
+        .map((m, i) => `
+          <article class="rounded-2xl border border-stone-200 bg-white shadow-calm overflow-hidden fade-up">
+            <div class="p-4 flex justify-center bg-sage-50">
+              <img
+                src="${i === 0 ? C.images.timPortrait : C.images.katrinPortrait}"
+                alt="${m.name}"
+                class="img-portrait max-h-[520px]"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-bold text-stone-900">${m.name}</h4>
+              <ul class="mt-3 space-y-1 text-sm text-stone-600">
+                ${m.qualifications.map(q => `<li class="flex items-start gap-2"><span class="text-sage-500 shrink-0">•</span> ${q}</li>`).join("")}
+              </ul>
+              <blockquote class="mt-4 text-sm italic text-sage-600 border-l-2 border-sage-300 pl-3">${m.quote}</blockquote>
+              <blockquote class="mt-2 text-xs italic text-stone-500 border-l-2 border-stone-200 pl-3">${m.quoteOsteo}</blockquote>
+            </div>
+          </article>
+        `).join("");
+
+      /* ── Praxis ── */
+      $("praxis-title").textContent = C.praxis.title;
+      $("praxis-lead").textContent = C.praxis.lead;
+      $("praxis-gallery").innerHTML = C.praxis.gallery
+        .map(img => `<img src="${img.src}" alt="${img.alt}" class="img-natural fade-up" loading="lazy" />`)
+        .join("");
+
+      /* ── FAQ ── */
+      $("faq-title").textContent = C.faq.title;
+      $("faq-list").innerHTML = C.faq.items
+        .map((item, i) => `
+          <div class="faq-item" data-faq="${i}">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>${item.q}</span>
+              <svg class="faq-chevron" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+            <div class="faq-answer"><p>${item.a}</p></div>
+          </div>
+        `).join("");
+      $("faq-cta").textContent = C.faq.cta;
+
+      /* ── Doctolib ── */
+      $("doctolib-title").textContent = C.doctolib.title;
+      $("doctolib-placeholder").textContent = C.doctolib.placeholder;
+      $("doctolib-hint").textContent = C.doctolib.hint;
+
+      /* ── Kontakt ── */
+      $("kontakt-title").textContent = C.kontakt.title;
+      $("kontakt-lead").textContent = C.kontakt.lead;
+      $("kontakt-phone").href = C.kontakt.phoneHref;
+      $("kontakt-phone").textContent = C.kontakt.phone;
+      $("kontakt-email").href = C.kontakt.emailHref;
+      $("kontakt-email").textContent = C.kontakt.email;
+      $("kontakt-address").textContent = C.kontakt.address;
+      $("kontakt-address-detail").textContent = " (" + C.kontakt.addressDetail + ")";
+      $("kontakt-wa").href = C.kontakt.whatsapp;
+      $("kontakt-sms").href = C.kontakt.sms;
+      $("kontakt-call").href = C.kontakt.phoneHref;
+      $("kontakt-praxis-img").src = C.images.visitenkarte;
+      $("kontakt-praxis-img").alt = "Visitenkarte Gesund und Fröhlich";
+
+      $("kontakt-hours").innerHTML = C.kontakt.hours
+        .map(h => `<dt class="font-medium">${h.day}</dt><dd>${h.time}</dd>`)
+        .join("");
+
+      // Form labels
+      $("label-name").textContent = C.kontakt.formLabels.name + "*";
+      $("label-email").textContent = C.kontakt.formLabels.email + "*";
+      $("label-phone").textContent = C.kontakt.formLabels.phone + "*";
+      $("label-message").textContent = C.kontakt.formLabels.message + "*";
+      $("form-submit").textContent = C.kontakt.formLabels.submit;
+      $("form-consent").textContent = C.kontakt.formLabels.consent;
+      $("form-absage").textContent = C.kontakt.absageHinweis;
+      $("form-datenschutz").textContent = C.kontakt.datenschutz;
+
+      /* ── Footer ── */
+      $("footer-logo").src = C.images.footerLogo;
+      $("footer-logo").alt = "Logo " + C.nav.brand;
+      $("footer-copyright").textContent = C.footer.copyright;
+      $("footer-address").textContent = C.footer.address;
+      $("footer-links").innerHTML = C.footer.links
+        .map(l => `<a href="${l.href}" class="underline underline-offset-4 hover:text-sage-600">${l.label}</a>`)
+        .join("");
+    }
+
+    /* ═══ INITIALISIERUNG ═══ */
+    document.addEventListener("DOMContentLoaded", () => {
+      /* 1. Inhalte rendern */
+      renderContent();
+
+      /* 2. Mobile Navigation */
+      const burger = document.getElementById("burger");
+      const overlay = document.getElementById("mobile-overlay");
+      const panel = document.getElementById("mobile-panel");
+      const closeBtn = document.getElementById("mobile-close");
+
+      const openMobile = () => { overlay.classList.add("open"); panel.classList.add("open"); document.body.style.overflow = "hidden"; };
+      const closeMobile = () => { overlay.classList.remove("open"); panel.classList.remove("open"); document.body.style.overflow = ""; };
+
+      burger.addEventListener("click", openMobile);
+      overlay.addEventListener("click", closeMobile);
+      closeBtn.addEventListener("click", closeMobile);
+      panel.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMobile));
+
+      /* 3. Scrollende Header-Shadow */
+      const header = document.getElementById("site-header");
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 20);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* 4. Smooth-Scroll für Anker */
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", e => {
+          const id = link.getAttribute("href");
+          if (!id || id === "#") return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          const offset = header.offsetHeight + 8;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        });
+      });
+
+      /* 5. FAQ Accordion */
+      document.querySelectorAll(".faq-item").forEach(item => {
+        const btn = item.querySelector(".faq-question");
+        btn.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          // Alle schließen
+          document.querySelectorAll(".faq-item.open").forEach(i => {
+            i.classList.remove("open");
+            i.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+
+      /* 6. Kontaktformular */
+      const form = document.getElementById("contactForm");
+      const msgInput = document.getElementById("f-message");
+      const charCount = document.getElementById("charCount");
+      const formMessage = document.getElementById("formMessage");
+
+      const updateCount = () => { charCount.textContent = `${msgInput.value.length} / 700`; };
+      updateCount();
+      msgInput.addEventListener("input", updateCount);
+
+      // Live-Validierung
+      form.querySelectorAll("input[required], textarea[required]").forEach(field => {
+        const check = () => field.classList.toggle("invalid", field.value.trim() !== "" && !field.checkValidity());
+        field.addEventListener("blur", check);
+        field.addEventListener("input", check);
+      });
+
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          formMessage.textContent = "Bitte füllen Sie alle Pflichtfelder korrekt aus.";
+          formMessage.style.color = "#ef4444";
+          form.reportValidity();
+          return;
+        }
+        const name = document.getElementById("f-name").value.trim();
+        const email = document.getElementById("f-email").value.trim();
+        const phone = document.getElementById("f-phone").value.trim();
+        const message = msgInput.value.trim();
+
+        const subject = encodeURIComponent("Terminanfrage über Website");
+        const body = encodeURIComponent(
+          `Name: ${name}\nE-Mail: ${email}\nTelefon: ${phone}\n\nNachricht:\n${message}`
+        );
+        window.location.href = `mailto:${CONTENT.kontakt.email}?subject=${subject}&body=${body}`;
+
+        formMessage.textContent = "Ihr E-Mail-Programm wird geöffnet. Vielen Dank!";
+        formMessage.style.color = "#4e6b4b";
+      });
+
+      /* 7. Scroll-Animationen (Intersection Observer) */
+      const observerOptions = { threshold: 0.12, rootMargin: "0px 0px -40px 0px" };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>
